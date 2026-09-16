@@ -1,6 +1,7 @@
 package com.tony.jrp.server;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.tony.jrp.common.utils.ConsoleUtils;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Launcher;
 import io.vertx.core.Promise;
@@ -21,6 +22,8 @@ public class ServerApplication extends AbstractVerticle {
     public static final String START = "start";
 
     public static void main(String[] args) {
+        //Windows控制台切换UTF-8编码，解决控制台中文乱码问题
+        ConsoleUtils.setUtf8Console();
         List<String> list = getVertxArgs(args, ServerApplication.class.getName());
         DatabindCodec.mapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         new Launcher() {
