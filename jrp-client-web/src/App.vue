@@ -62,7 +62,8 @@ export default {
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* 公共头部 */
